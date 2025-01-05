@@ -9,6 +9,7 @@ ln -s asm/assembly.fasta
 ln -s asm/assembly.colors.csv
 ln -s asm/assembly.paths.tsv
 ln -s asm/assembly.scfmap
+ln -s asm/assembly.homopolymer-compressed.gfa
 ln -s asm/assembly.homopolymer-compressed.noseq.gfa
 ln -s asm/8-hicPipeline
 
@@ -30,7 +31,7 @@ meryl count compress k=21 *fastq.gz output pat.meryl
 # then generate hapmers with merqury:
 $MERQURY/_submit_hapmers.sh mat.meryl pat.meryl child.meryl
 
-# use hapmers to assign unitigs
+# use hapmers to assign unitigs (make sure to use compressed kmers)
 gfastats assembly.homopolymer-compressed.gfa -o assembly.homopolymer-compressed.fasta --discover-paths # first get the unitig sequence that meryl can work with
 meryl-lookup -existence -sequence assembly.homopolymer-compressed.fasta -mers mat.hapmer.meryl pat.hapmer.meryl -output hapmers.out
 
@@ -39,9 +40,6 @@ awk 'BEGIN{print "utg,assignment,node_color,hap1,hap2"}{IFS="\t"; gsub(/\_path/,
 
 ######## chr assignment ########
 
-ln -s asm/8-hicPipeline
-ln -s asm/assembly.homopolymer-compressed.noseq.gfa
-ln -s asm/assembly.fasta
 bash getChrNames.sh GCF_003957565.2_bTaeGut1.4.pri_genomic.fna.gz
 
 # then we can map refSeq IDs to numbers (report from RefSeq)
@@ -51,14 +49,14 @@ grep -v "^\#" GCF_003957565.2_bTaeGut1.4.pri_assembly_report.txt | cut -f3,7 > r
 cut -d',' -f1,2 bTaeGut2.hap1.W.cur.20220905.csv | awk -F',' '{print $2"\t"$1}' > bTaeGut2.hap1.W.cur.20220905_chr_assignments.ls
 
 # verkko
-awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$2]}' refseq_chr_assignments.ls translation_hap1 > translation_hap1_with_numbers.tsv
-awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$2]}' refseq_chr_assignments.ls translation_hap2 > translation_hap2_with_numbers.tsv
+awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$2]}' bTaeGut2.hap1.W.cur.20220905_chr_assignments.ls translation_hap1 > translation_hap1_with_numbers.tsv
+awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$2]}' bTaeGut2.hap1.W.cur.20220905_chr_assignments.ls translation_hap2 > translation_hap2_with_numbers.tsv
 
 # alternative approach (e.g. for hifiasm)
 mashmap -r ../GCF_003957565.2_bTaeGut1.4.pri_genomic.fna.gz -q bTaeGut7.asm.hic.hap1.p_ctg.fasta.gz --pi 95 -s 10000 -t 8 -o hap1.mashmap.out
 mashmap -r ../GCF_003957565.2_bTaeGut1.4.pri_genomic.fna.gz -q bTaeGut7.asm.hic.hap2.p_ctg.fasta.gz --pi 95 -s 10000 -t 8 -o hap2.mashmap.out
-awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$6]}' refseq_chr_assignments.ls hap1.mashmap.out > translation_hap1_with_numbers.tsv
-awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$6]}' refseq_chr_assignments.ls hap2.mashmap.out > translation_hap2_with_numbers.tsv
+awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$6]}' bTaeGut2.hap1.W.cur.20220905_chr_assignments.ls hap1.mashmap.out > translation_hap1_with_numbers.tsv
+awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$6]}' bTaeGut2.hap1.W.cur.20220905_chr_assignments.ls hap2.mashmap.out > translation_hap2_with_numbers.tsv
 
 # project on the unitigs
 grep path assembly.scfmap | cut -d' ' -f2,3 | tr ' ' ',' > hap_to_path.csv
@@ -70,8 +68,10 @@ ln -s asm/3-align/split/
 ln -s asm/3-align/diploid.index
 ln -s asm/assembly.homopolymer-compressed.gfa
 
-# then run something like
+# then run something like and cat the alignments together
 sbatch -pvgl -c32 --array=1-154%5 graphAligner.sh
+# you can add edge support to the graph with
+gfalign eval -g aln.gaf -f assembly.homopolymer-compressed.rDNA_telo.gfa -o assembly.homopolymer-compressed.rDNA_telo.edge_support.gfa
 
 ######## combine ########
 awk 'NR==1 {print "utg"} NR>1 {split($2, a, ","); for (i in a) print substr(a[i], 1, length(a[i])-1)}' assembly.paths.tsv > utg.ls # list of unitigs
