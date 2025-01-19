@@ -12,7 +12,6 @@ hic_colors = pd.read_csv(sys.argv[1], sep='\t')
 hic_colors.drop(columns=['mat', 'pat', 'mat:pat'], axis=1, inplace=True)
 hic_colors = hic_colors.rename(columns={'node': 'utg', 'color': 'hic_color'})
 hic_colors.set_index('utg', inplace=True)
-print(hic_colors)
 # Combine the tables
 combined_df = pd.merge(data[0], data[1], how='left', on='utg')
 combined_df = pd.merge(combined_df, data[2], how='left', on='utg')

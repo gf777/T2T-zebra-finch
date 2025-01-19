@@ -5,6 +5,7 @@ micromamba activate verkko
 
 # first link these files and folder in a new folder (just to avoid messing up with the assembly folder)
 ln -s [path/to/asm] asm
+
 ln -s asm/assembly.fasta
 ln -s asm/assembly.colors.csv
 ln -s asm/assembly.paths.tsv
@@ -78,6 +79,14 @@ awk 'NR==1 {print "utg"} NR>1 {split($2, a, ","); for (i in a) print substr(a[i]
 awk -F',' 'NR==1 {print "utg,hap"} NR==FNR{p[$2]=$1; next}; {FS="\t"; split($2, a, ","); for (i in a) print a[i]","p[$1]}' hap_to_path.csv assembly.paths.tsv > utg_to_hap.csv # paths to haplotypes
 awk -F'\t' 'NR==1 {print "utg,chr"} NR==FNR{p[$1]=$2; next}; {FS=","; print substr($1, 1, length($1)-1)","p[$2]}' <(cut -f1,5 translation_hap1_with_numbers.tsv translation_hap2_with_numbers.tsv) utg_to_hap.csv > utg_to_chr.nosign.csv # haplotypes to chromosomes, beware 2nd row may need to be removed manually
 python combine_annotations.py utg.ls utg_to_chr.nosign.csv hapmers.csv telo_utgs.csv
+
+######## generate verkko consensus ########
+python path_to_gaf.py ${gaf_output} assembly.paths.tsv
+regenerate.sh assembly.paths.curated.v0.0.1.gaf asm/ genomic_data/hifi/\*fastq.gz genomic_data/ont/raw/\*fastq.gz asm_edited
+# get original scaffold to path mapping (do for both paternal and maternal)
+awk 'NR == FNR {scaff[$1]=$2;next} {if(scaff[$1]) print $2"\t"scaff[$1]}' scaffold_to_chr.paternal.tsv <(grep path old_assembly.scfmap | sed -e "s/path //") > path_to_chr.paternal.tsv
+awk 'NR == FNR {scaff[$1]=$2;next} {if(scaff[$2]) print $1"\t"scaff[$2]}' path_to_chr.paternal.tsv <(grep path new_assembly.scfmap | sed -e "s/path //") > new_scaffold_to_chr.paternal.tsv
+gfastats --include <(cut -f1 new_scaffold_to_chr.paternal.tsv) new_assembly.fasta -k <(awk '{print "COMMENT\t"$0}' new_scaffold_to_chr.paternal.tsv) -o paternal.fasta
 
 ######## extra ########
 
