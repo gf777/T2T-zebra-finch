@@ -89,6 +89,8 @@ awk 'NR == FNR {scaff[$1]=$2;next} {if(scaff[$2]) print $1"\t"scaff[$2]}' path_t
 gfastats --include <(cut -f1 new_scaffold_to_chr.paternal.tsv) new_assembly.fasta -k <(awk '{print "COMMENT\t"$0}' new_scaffold_to_chr.paternal.tsv) -o paternal.fasta
 
 ######## extra ########
+# basic dotplot
+perl generateDotPlot png medium mashmap.out
 
 # to better visualize sequence direction in bandage remember to:
 - load graph into bandageNG
