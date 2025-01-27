@@ -91,7 +91,8 @@ gfastats -k <(awk '{print "RENAME\t"$1"\t"$1"_asm5-redo"}' new_scaffold_to_chr.p
 
 ######## extra ########
 # basic dotplot
-perl generateDotPlot png medium mashmap.out
+mashmap -r ref.fa -q qry.fa --pi 95 -s 10000 -t 32 -o mashmap.out
+perl generateDotPlot png large mashmap.out
 
 # to better visualize sequence direction in bandage remember to:
 - load graph into bandageNG
