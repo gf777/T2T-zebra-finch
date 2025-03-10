@@ -7,12 +7,12 @@ This generates consensus and morph-specific sequences for each rDNA tangle in th
 
 For each tangle `morphs.fa` file contains the coverage/number of observed full copies of each morph. This can be used to estimate the number of copies of each morph in the original genome according to this formula:
 ```
-awk '{morphSize=18342; if ($1>morphSize) bases += $1-18342}END{print bases/2163069850}' <(rdeval *rd -ss)
+awk '{morphSize=18342; if ($1>morphSize) bases += $1-morphSize}END{print bases/2163069850}' <(rdeval *rd -ss)
 63.2896
 ```
-Briefly, rdeval provides read lengths for each read used to build the assembly graph (HERRO-corrected ONT only reads), and the above command returns the expected coverage for a full copy of a morph. The observed number of copies of each morph divided by 63.2896 gives the expected number of morph copies in the genome. A full model sequence that mixes them in the expected proportion can be generated using rDNA Morph Mixer:
+Briefly, rdeval provides read lengths for each read used to resolve the assembly graph (ONT raw reads), and the above command returns the expected coverage for a full copy of a morph (length of the most abundant morph for each haplotype used). The observed number of copies of each morph divided by the average kmer coverage gives the expected number of morph copies in the genome. A full model sequence that mixes them in the expected proportion can be generated using rDNA Morph Mixer:
 ```
-python3 rDNAscript.py chicken_v0.2/0/morphs.fa -o paternal.rDNAmodel.fasta -c 63.2896 > paternal.out
-python3 rDNAscript.py chicken_v0.2/2/morphs.fa -o maternal.rDNAmodel.fasta -c 63.2896 > maternal.out
+python3 rDNAscript.py chicken_v0.2/0/morphs.fa -o paternal.rDNAmodel.fasta -c 76.2568 > paternal.out
+python3 rDNAscript.py chicken_v0.2/2/morphs.fa -o maternal.rDNAmodel.fasta -c 76.9743 > maternal.out
 ```
 These can then be aligned to the ends of the rDNA gaps to identify insertion orientation.
