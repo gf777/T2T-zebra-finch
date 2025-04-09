@@ -1,5 +1,5 @@
 # haplotype-specific rDNA model
-To build a haplotype-specific rDNA model run ribotin in [https://github.com/maickrau/ribotin?tab=readme-ov-file#verkko-based-automatic](Verkko-mode). For the zebra finch the chicken sequence (KT445934.2) was used along with the hifi+HERRO-corrected ONT data graph:
+To build a haplotype-specific rDNA model run ribotin in [Verkko-mode](https://github.com/maickrau/ribotin?tab=readme-ov-file#verkko-based-automatic). For the zebra finch the chicken sequence (KT445934.2) was used along with the hifi+HERRO-corrected ONT data graph:
 ```
 ribotin-verkko -i asm8/ -o chicken_v0.2/ -t32 --guess-tangles-using-reference chicken.fasta --approx-morphsize 18000
 ```

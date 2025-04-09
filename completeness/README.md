@@ -8,7 +8,7 @@ An alternative tool is FastGA:
 FastGA GCF_003957565.2_bTaeGut1.4.pri_genomic.fna.gz bTaeGut7.mat+Z.cur.20250313.fasta.gz -1:GCF_003957565_vs_bTaeGut7.mat+Z.cur.20250313.1aln
 ALNtoPAF GCF_003957565_vs_bTaeGut7.mat+Z.cur.20250313.1aln > GCF_003957565_vs_bTaeGut7.mat+Z.cur.20250313.paf
 ```
-First, we need a lookup table with the chromosome names from the old and new reference. We can fetch chromosome names and assign them to NCBI accessions using the [https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/957/565/GCF_003957565.2_bTaeGut1.4.pri/GCF_003957565.2_bTaeGut1.4.pri_assembly_report.txt](assembly report):
+First, we need a lookup table with the chromosome names from the old and new reference. We can fetch chromosome names and assign them to NCBI accessions using the [assembly report](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/957/565/GCF_003957565.2_bTaeGut1.4.pri/GCF_003957565.2_bTaeGut1.4.pri_assembly_report.txt):
 ```
 grep -v "^#" GCF_003957565.2_bTaeGut1.4.pri_assembly_report.txt | cut -f3,7 | grep -v na > GCF_003957565.chrTable.tsv
 ```
