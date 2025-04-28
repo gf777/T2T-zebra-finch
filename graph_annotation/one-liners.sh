@@ -64,6 +64,9 @@ awk 'NR == FNR {chrs[$2]=$1;next}{print $0"\t"chrs[$6]}' bTaeGut2.hap1.W.cur.202
 
 # project on the unitigs
 grep path assembly.scfmap | cut -d' ' -f2,3 | tr ' ' ',' > hap_to_path.csv
+awk 'NR==1 {print "utg"} NR>1 {split($2, a, ","); for (i in a) print substr(a[i], 1, length(a[i])-1)}' assembly.paths.tsv > utg.ls # list of unitigs
+awk -F',' 'NR==1 {print "utg,hap"} NR==FNR{p[$2]=$1; next}; {FS="\t"; split($2, a, ","); for (i in a) print a[i]","p[$1]}' hap_to_path.csv assembly.paths.tsv > utg_to_hap.csv # paths to haplotypes
+awk -F'\t' 'NR==1 {print "utg,chr"} NR==FNR{p[$1]=$2; next}; {FS=","; print substr($1, 1, length($1)-1)","p[$2]}' <(cut -f1,5 translation_hap1_with_numbers.tsv translation_hap2_with_numbers.tsv) utg_to_hap.csv > utg_to_chr.nosign.csv # haplotypes to chromosomes, beware 2nd row may need to be removed manually
 
 ######## GraphAligner ########
 
@@ -78,7 +81,4 @@ sbatch -pvgl -c32 --array=1-154%5 graphAligner.sh
 gfalign eval -g aln.gaf -f assembly.homopolymer-compressed.rDNA_telo.gfa -o assembly.homopolymer-compressed.rDNA_telo.edge_support.gfa
 
 ######## combine ########
-awk 'NR==1 {print "utg"} NR>1 {split($2, a, ","); for (i in a) print substr(a[i], 1, length(a[i])-1)}' assembly.paths.tsv > utg.ls # list of unitigs
-awk -F',' 'NR==1 {print "utg,hap"} NR==FNR{p[$2]=$1; next}; {FS="\t"; split($2, a, ","); for (i in a) print a[i]","p[$1]}' hap_to_path.csv assembly.paths.tsv > utg_to_hap.csv # paths to haplotypes
-awk -F'\t' 'NR==1 {print "utg,chr"} NR==FNR{p[$1]=$2; next}; {FS=","; print substr($1, 1, length($1)-1)","p[$2]}' <(cut -f1,5 translation_hap1_with_numbers.tsv translation_hap2_with_numbers.tsv) utg_to_hap.csv > utg_to_chr.nosign.csv # haplotypes to chromosomes, beware 2nd row may need to be removed manually
 python combine_annotations.py utg.ls utg_to_chr.nosign.csv hapmers.csv telo_utgs.csv
