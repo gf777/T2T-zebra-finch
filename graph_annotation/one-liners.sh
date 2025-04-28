@@ -19,6 +19,9 @@ seqtk telo -d 50000 assembly.fasta > assembly.telomere.bed
 # simplify/remove rDNA
 bash removeRDNA.sh human-rdna-KY962518.1.hpc.fasta
 
+#update graph with rDNA and telomere annotation
+python remove_nodes_add_telomere.py -r target.screennodes.out -t assembly.telomere.bed -g assembly.homopolymer-compressed.noseq.gfa -s assembly.scfmap -p assembly.paths.tsv -c assembly.colors.csv -o assembly.homopolymer-compressed.noseq.telo_rdna.gfa
+
 # extract telo colors for metadata table (probably same as assembly.colors.telo_rdna.csv)
 grep telo assembly.homopolymer-compressed.noseq.telo_rdna.gfa | grep ^S | awk 'BEGIN{print "utg,assignment,node_color"}{print $2",telo,#008000"}' > telo_utgs.csv
 
