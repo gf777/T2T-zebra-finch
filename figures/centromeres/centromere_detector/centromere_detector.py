@@ -112,7 +112,6 @@ def find_centromere(blocks, bw_file, min_length):
     # Return the best centromere candidates per chromosome with their methylation value
     return [chromosome_centromeres[chrom] for chrom in chromosome_centromeres]
 
-
 def annotate_kinetochore_binding_site(chrom, start, end, bw_file, avg_methylation):
     """Identify regions with significantly lower methylation within the centromere."""
 

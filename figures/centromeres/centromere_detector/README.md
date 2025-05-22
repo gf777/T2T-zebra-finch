@@ -5,3 +5,4 @@ python centromere_detector.py bTaeGut7v0.4_MT_rDNA.RM.Takki2022.v0.1.colored.mer
 grep -v kinetochore_binding_site out2.gff > bTaeGut7v0.4_MT_rDNA.centromere_detector.v0.1.gff
 ```
 The function to identify the putative kinetochore binding site based on methylation is not working yet, so we remove that from the annotation.
+Note: in the specific case of chr5_mat, because of the inversion, the centromere sequence will be too small. So need a cutoff of 1000 bp only for this one chromosome
