@@ -10,9 +10,17 @@ ALNtoPAF GCF_003957565_vs_bTaeGut7.mat+Z.cur.20250313.1aln > GCF_003957565_vs_bT
 ```
 First, we need a lookup table with the chromosome names from the old and new reference. We can fetch chromosome names and assign them to NCBI accessions using the [assembly report](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/957/565/GCF_003957565.2_bTaeGut1.4.pri/GCF_003957565.2_bTaeGut1.4.pri_assembly_report.txt):
 ```
-grep -v "^#" GCF_003957565.2_bTaeGut1.4.pri_assembly_report.txt | cut -f3,7 | grep -v na > GCF_003957565.chrTable.tsv
+grep -v "^#" GCF_003957565.2_bTaeGut1.4.pri_assembly_report.txt | cut -f3,5 | grep -v na > GCF_003957565.chrTable.tsv
 ```
-Then we need to (manually?) add the corresponding chr name in the genome we are using as reference to assess completeness. In this case it would be the 3rd column of `GCF_003957565.chrTable.with_mat.tsv`.
+In case this genome is not available in NCBI we can use the curation file:
+```
+awk -F',' '{print $2"\t"$1}' bTaeGut2.hap1.W.cur.20220905.csv > bTaeGut2.hap1.W.cur.20220905.chrTable.tsv
+```
+Then, using the chr name in the genome as query, we need to add the corresponding chr name in the genome we are using as reference to assess completeness:
+```
+python match_chromosomes.py GCF_003957565.chrTable.tsv <(cut -f1 bTaeGut7.mat+Z.cur.20250313.fasta.fai) GCF_003957565.chrTable.with_mat.tsv
+```
+The script adds the lookup value as the 3rd column of `GCF_003957565.chrTable.with_mat.tsv`.
 The following command extracts from a paf file (either the one from minimap or from FastGA) only the alignments from the same chromosome, otherwise another chromosome sequence can mask the gap in the chromosome being considered:
 ```
 bash query_uniq.sh GCF_003957565_vs_bTaeGut7.mat+Z.cur.20250313.paf GCF_003957565.chrTable.with_mat.tsv
