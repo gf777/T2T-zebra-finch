@@ -37,3 +37,4 @@ This gives us chromosome-specific statistics:
 ```
 bash gap_stats.sh GCF_003957565.gaps.bed bTaeGut7.mat+Z.cur.20250313.fasta.fai
 ```
+Once stats are collected for multiple assemblies they can be plotted with [plot_completeness.py]()
