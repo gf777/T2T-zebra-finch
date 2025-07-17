@@ -1,0 +1,2 @@
+#!/bin/bash
+verkko -d asm8_edited_v0.3/ --paths assembly.paths.curated.v0.0.3.gaf --assembly ../../redo/asm8/ --hifi ../../genomic_data/hifi/*fastq.gz ../../genomic_data/ont/corrected_nor9/*fasta.gz --nano ../../genomic_data/ont/raw/*fastq.gz --cns-run 8 350 24 --grid --snakeopts ' --jobs 200 --cluster "./slurm-sge-submit.sh {threads} {resources.mem_gb} {resources.time_h} {rulename} {resources.job_id} --partition=vgl_a --account=vgl_condo_bank --time=7-0"'
