@@ -12,7 +12,7 @@ bash collect_summary.sh v0.4_dip_hifi.filtered.paf v0.4_dip_hifi.filtered full
 ```
 Wig files can be further converted to bigWig for visualization:
 ```
-wigToBigWig v0.4_dip_hifi.filtered.filtered.idy.med.wig bTaeGut7v0.4_MT_rDNA.fa.chrom.sizes bTaeGut1.4_CLR.idy.med.bw -clip
+wigToBigWig v0.4_dip_hifi.filtered.idy.med.wig bTaeGut7v0.4_MT_rDNA.fa.chrom.sizes bTaeGut1.4_CLR.idy.med.bw -clip
 ```
 To view them:
 ```
