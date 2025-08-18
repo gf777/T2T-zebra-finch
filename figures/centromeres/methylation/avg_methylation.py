@@ -6,11 +6,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
+# Keep fonts as text in SVGs
+plt.rcParams['svg.fonttype'] = 'none'
+
 
 def bigwig_to_bedgraph(bigwig_file, chrom, start, end, bedgraph_file):
     """Extracts specific region from BigWig to BedGraph using bigwigToBedGraph."""
     try:
-        # Run bigwigToBedGraph for the specified region and ensure the BedGraph file is created
         subprocess.run([
             "./bigWigToBedGraph",
             bigwig_file,
@@ -78,7 +80,6 @@ def get_methylation_from_bigwig(bigwig_file, gff_file, min_length=0, select_best
                         # Filter the DataFrame to get the valid methylation values
                         valid_values = df["value"].dropna()
 
-                        # Debugging: Print the valid methylation values
                         if verbose:
                             print(f"Valid methylation values for {chrom}:{start}-{end}: {valid_values}")
 
@@ -117,7 +118,7 @@ def get_methylation_from_bigwig(bigwig_file, gff_file, min_length=0, select_best
                 for region in sorted_regions[1:]:
                     methylation_data.append((repeat, region[2], chrom, "other"))
 
-    # Now we can safely build the DataFrame from methylation_data
+    # Build the DataFrame from methylation_data
     if methylation_data:
         df_result = pd.DataFrame(methylation_data, columns=["Repeat", "Methylation", "Chromosome", "Match_Type"])
 
@@ -137,7 +138,8 @@ def main():
     parser = argparse.ArgumentParser(description="Compare methylation levels at CpG sites for two repeat regions.")
     parser.add_argument("bigwig_file", help="Path to the BigWig file containing methylation data")
     parser.add_argument("gff_file", help="Path to the GFF file containing repeat annotations")
-    parser.add_argument("--output", help="Output file for saving the violin plot", default="methylation_comparison.png")
+    parser.add_argument("--output", help="Output base name or filename (PNG & SVG will be written)",
+                        default="methylation_comparison.png")
     parser.add_argument("--verbose", help="Enable verbose output for debugging", action="store_true")
     parser.add_argument("--min-length", type=int, default=0, help="Minimum length for repeat regions to be included")
     parser.add_argument("--select-best", help="Select the single best (lowest) candidate region per chromosome",
@@ -152,28 +154,56 @@ def main():
                                                  select_best=args.select_best,
                                                  verbose=args.verbose)
 
-    # Debugging: Check if data is collected before plotting
     if methylation_df.empty:
         print("No methylation data found. Please check your input files and regions.")
         return
 
-    # Plot the violin plot (default coloring for violins)
-    plt.figure(figsize=(8, 6))
-    sns.violinplot(x="Repeat", y="Methylation", data=methylation_df)
+    # ---- Plot ----
+    fig, ax = plt.subplots(figsize=(4, 6), layout='constrained')
 
-    # Add jittered points using stripplot, coloring the best points in red
-    sns.stripplot(x="Repeat", y="Methylation", data=methylation_df, hue="Match_Type",
-                  palette={"best": "red", "other": "black"}, dodge=False, alpha=0.6, jitter=True)
+    # Violin plot: cut=0 prevents KDE extending beyond data, which can push the y-axis oddly
+    sns.violinplot(x="Repeat", y="Methylation", data=methylation_df, ax=ax, cut=0)
 
-    plt.title("Comparison of Methylation Levels for Tgut716A and Tgut191A")
-    plt.ylabel("Average Methylation at CpG sites")
-    plt.xlabel("Repeat Region")
+    # Jittered points; highlight best in red, others black
+    if "Match_Type" in methylation_df.columns:
+        sns.stripplot(x="Repeat", y="Methylation", data=methylation_df, hue="Match_Type",
+                      palette={"best": "red", "other": "black"}, dodge=False, alpha=0.6, jitter=True, ax=ax)
+        # Place legend outside to avoid crowding/cropping
+        handles, labels = ax.get_legend_handles_labels()
+        if handles:
+            ax.legend(handles, labels, title="Match type",
+                      loc="lower right", frameon=True, borderaxespad=0.5)
+    else:
+        sns.stripplot(x="Repeat", y="Methylation", data=methylation_df,
+                      color="black", alpha=0.6, jitter=True, ax=ax)
 
-    # Save the plot
-    plt.savefig(args.output)
-    print(f"Plot saved to {args.output}")
+    ax.set_ylabel("Average methylation at CpG sites")
+    ax.set_xlabel("Repeat region")
+
+    # Add a little vertical padding so nothing gets clipped
+    yvals = methylation_df["Methylation"].to_numpy()
+    yvals = yvals[np.isfinite(yvals)]
+    if yvals.size:
+        y_min, y_max = np.min(yvals), np.max(yvals)
+        if y_max == y_min:
+            pad = max(1.0, abs(y_max) if y_max != 0 else 1.0) * 0.05
+        else:
+            pad = (y_max - y_min) * 0.05
+        ax.set_ylim(y_min - pad, y_max + pad)
+    ax.margins(y=0.05)
+
+    # ---- Save PNG and SVG ----
+    base, _ext = os.path.splitext(args.output)
+    png_path = base + ".png"
+    svg_path = base + ".svg"
+    fig.savefig(png_path, dpi=300, bbox_inches='tight', pad_inches=0.02)
+    fig.savefig(svg_path,           bbox_inches='tight', pad_inches=0.02)
+    print(f"Plots saved to {png_path} and {svg_path}")
+
+    # Optional interactive view
     plt.show()
 
 
 if __name__ == "__main__":
     main()
+
