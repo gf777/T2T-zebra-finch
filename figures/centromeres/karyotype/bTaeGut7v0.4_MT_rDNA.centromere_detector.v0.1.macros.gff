@@ -1,0 +1,12 @@
+chr1_mat	centromere_detector	centromere	19934537	20035239	.	.	.	ID=1502;Target "Motif:Tgut716A" 303 102472;color=#d94c8a;average_methylation=39.059955789831655
+chr1A_mat	centromere_detector	centromere	59363422	59644838	.	.	.	ID=1464;Target "Motif:Tgut716A" 1 282863;color=#d94c8a;average_methylation=75.06618830723154
+chr2_mat	centromere_detector	centromere	78412465	78507857	.	.	.	ID=1645;Target "Motif:Tgut716A" 303 97373;color=#d94c8a;average_methylation=31.60629126925899
+chr3_mat	centromere_detector	centromere	78375437	78550378	.	.	.	ID=456;Target "Motif:Tgut716A" 303 177591;color=#d94c8a;average_methylation=43.612072778447924
+chr4_mat	centromere_detector	centromere	55812451	55867476	.	.	.	ID=310;Target "Motif:Tgut716A" 1 55681;color=#d94c8a;average_methylation=34.03288700195951
+chr4A_mat	centromere_detector	centromere	19502099	19531476	.	.	.	ID=523;Target "Motif:Tgut716A" 390 30151;color=#d94c8a;average_methylation=9.994630071599046
+chr5_mat	centromere_detector	centromere	1115179	1117240	.	.	.	ID=1081;Target "Motif:Tgut716A" 1 2065;color=#d94c8a;average_methylation=3.3157024793388428
+chr6_mat	centromere_detector	centromere	3200	239473	.	.	.	ID=1;Target "Motif:Tgut716A" 574 240202;color=#d94c8a;average_methylation=73.085952257009
+chr7_mat	centromere_detector	centromere	4250425	4652792	.	.	.	ID=3000;Target "Motif:Tgut716A" 10 402391;color=#d94c8a;average_methylation=74.71699983130904
+chr8_mat	centromere_detector	centromere	26473112	27102790	.	.	.	ID=174;Target "Motif:Tgut716A" 1 642434;color=#d94c8a;average_methylation=79.38313198343826
+chrW_mat	centromere_detector	centromere	3327063	3378499	.	.	.	ID=9157;Target "Motif:Tgut716A" 303 52701;color=#d94c8a;average_methylation=26.269188490139026
+chrZ_pat	centromere_detector	centromere	35297810	35630884	.	.	.	ID=9131;Target "Motif:Tgut716A" 18 334716;color=#d94c8a;average_methylation=61.67374368838663
