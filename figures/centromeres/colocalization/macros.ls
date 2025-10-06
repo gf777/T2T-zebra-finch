@@ -1,0 +1,13 @@
+chr1_mat
+chr1A_mat
+chr2_mat
+chr3_mat
+chr4_mat
+chr5_mat
+chr1_pat
+chr1A_pat
+chr2_pat
+chr3_pat
+chr4_pat
+chr5_pat
+chrZ_pat
