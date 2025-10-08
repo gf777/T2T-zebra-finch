@@ -1,6 +1,15 @@
+#!/usr/bin/env python3
 import pandas as pd
 import matplotlib.pyplot as plt
-from datetime import datetime
+from matplotlib.dates import DateFormatter
+from io import StringIO
+
+# Ensure SVG text remains as text (not paths)
+plt.rcParams.update({
+    "svg.fonttype": "none",   # keep text as <text>
+    "text.usetex": False,     # avoid TeX -> paths
+    "font.family": "sans-serif"
+})
 
 # Input data
 data = """Release date\tCompleteness (%)
@@ -11,21 +20,28 @@ data = """Release date\tCompleteness (%)
 03/21/2025\t100.00"""
 
 # Load into DataFrame
-from io import StringIO
 df = pd.read_csv(StringIO(data), sep='\t')
-df['Release date'] = pd.to_datetime(df['Release date'])
+df['Release date'] = pd.to_datetime(df['Release date'], format='%m/%d/%Y')
 
 # Plot
 plt.figure(figsize=(3, 5))
 plt.plot(df['Release date'], df['Completeness (%)'],
          marker='o', linestyle='--')
-plt.xticks(df['Release date'], rotation=45, ha='right')
+
+# Format axes and labels
+plt.xticks(rotation=45, ha='right')
 plt.xlabel("Release date")
 plt.ylabel("Completeness (%)")
 plt.title("Assembly completeness")
 plt.grid(True)
+
+# Date formatting for X axis
+date_fmt = DateFormatter('%m/%d/%Y')
+plt.gca().xaxis.set_major_formatter(date_fmt)
+
 plt.tight_layout()
 
-# Save to file
-plt.savefig("completeness_plot.png", dpi=300)
+# Save as SVG with text preserved
+plt.savefig("completeness_plot.svg", format="svg")
 plt.close()
+
