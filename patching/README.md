@@ -83,15 +83,15 @@ gaps_resolved			   1	24529812	asm	   			1	24529812
 gaps_resolved		24529813	24529814	gap	1
 gaps_resolved		24529815	27135591	tangle1	  2031100	 4636876
 gaps_resolved		27135592	27135593	gap	1
-gaps_resolved		27135594    64942180	asm		 24630035	62436621
-gaps_resolved		64942181	64942182	gap	1
-gaps_resolved		64942183	66719517	tangle2	  2105238	 3882572
-gaps_resolved		66719518	66719519	gap	1
-gaps_resolved		66719520    79576093	asm		 65308200	78164773
-gaps_resolved		79576094	79576095	gap	1
-gaps_resolved		79576096	88302804	seq1	  3085952	11812660
-gaps_resolved		88302805	88302806	gap	1
-gaps_resolved		88302807    93980152	asm		 78250110	83927455
+gaps_resolved		27135594    67447739	asm		 24630035	64942180
+gaps_resolved		67447740	67447741	gap	1
+gaps_resolved		67447742	69225075	tangle2	  2105238	 3882571
+gaps_resolved		69225076	69225077	gap	1
+gaps_resolved		69225078    82419822	asm		 64970029	78164773
+gaps_resolved		82419823	82419824	gap	1
+gaps_resolved		82419825	91146533	seq1	  3085952	11812660
+gaps_resolved		91146534	91146535	gap	1
+gaps_resolved		91146536    96823881	asm		 78250110	83927455
 ```
 
 Actual AGP (gaps_resolved.agp):
@@ -100,20 +100,21 @@ Actual AGP (gaps_resolved.agp):
 # ORGANISM: zebra finch (bTaeGut7)
 # ASSEMBLY NAME: chrZ T2T gaps_resolved
 # DESCRIPTION: In this version the 4 gaps were closed by 1 tangle traversal using the hifi-only assembly in the hifi+correctedONT graph (gap1), tangle modelling using TTT (gaps2,3), alignment to the hifi-only assembly and stitching (gap4; the tangle traversal approach did fully extend through the tangle in the hifi+correctedONT assembly).
+# VERSION: 2
 # --------------------------------------------------------------
 gaps_resolved	1	24529812	1	W	contig-0000001	1	24529812	+
 gaps_resolved	24529813	24529814	2	N	1	scaffold	yes	paired-ends
 gaps_resolved	24529815	27135591	3	W	tangle1	2031100	4636876	+
 gaps_resolved	27135592	27135593	4	N	1	scaffold	yes	paired-ends
-gaps_resolved	27135594	64942180	5	W	contig-0000001	24630035	62436621	+
-gaps_resolved	64942181	64942182	6	N	1	scaffold	yes	paired-ends
-gaps_resolved	64942183	66719517	7	W	tangle2	2105238	3882572	+
-gaps_resolved	66719518	66719519	8	N	1	scaffold	yes	paired-ends
-gaps_resolved	66719520	79576093	9	W	contig-0000001	65308200	78164773	+
-gaps_resolved	79576094	79576095	10	N	1	scaffold	yes	paired-ends
-gaps_resolved	79576096	88302804	11	W	haplotype2-0000040	3085952	11812660	+
-gaps_resolved	88302805	88302806	12	N	1	scaffold	yes	paired-ends
-gaps_resolved	88302807	93980152	13	W	contig-0000001	78250110	83927455	+
+gaps_resolved	27135594	67447739	5	W	contig-0000001	24630035	64942180	+
+gaps_resolved	67447740	67447741	6	N	1	scaffold	yes	paired-ends
+gaps_resolved	67447742	69225075	7	W	tangle2	2105238	3882571	+
+gaps_resolved	69225076	69225077	8	N	1	scaffold	yes	paired-ends
+gaps_resolved	69225078	82419822	9	W	contig-0000001	64970029	78164773	+
+gaps_resolved	82419823	82419824	10	N	1	scaffold	yes	paired-ends
+gaps_resolved	82419825	91146533	11	W	haplotype2-0000040	3085952	11812660	+
+gaps_resolved	91146534	91146535	12	N	1	scaffold	yes	paired-ends
+gaps_resolved	91146536	96823881	13	W	contig-0000001	78250110	83927455	+
 ```
 
 Generate consensus:
