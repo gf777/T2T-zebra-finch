@@ -1,0 +1,66 @@
+
++++ Path Summary Report +++
+pos	header	telomeres	labels	gaps	type	granular	its	canonical	windows
+1	CM018802.2	0	none	41	gapped_none		25	38728	569946
+2	CM018261.2	0	none	15	gapped_none		32	24634	357170
+3	CM018262.2	0	none	56	gapped_none		23	50363	749276
+4	CM018263.2	0	none	46	gapped_none		7	37005	557909
+5	CM018264.2	0	none	30	gapped_none		23	24378	356164
+6	CM018265.2	0	none	6	gapped_none		13	6724	97544
+7	CM018266.2	0	none	25	gapped_none		9	20835	305552
+8	CM018267.2	0	none	8	gapped_none		8	12577	177361
+9	CM018268.2	0	none	8	gapped_none		19	13310	190401
+10	CM018269.2	1	q	22	gapped_incomplete	Q	11	11020	157703
+11	CM018270.2	0	none	14	gapped_none		8	8797	127774
+12	CM018271.2	0	none	7	gapped_none		25	7366	103217
+13	CM018272.2	0	none	12	gapped_none		5	7185	105481
+14	CM018273.2	0	none	5	gapped_none		11	7105	102352
+15	CM018274.2	0	none	11	gapped_none		5	6017	89843
+16	CM018275.2	1	p	3	gapped_incomplete	P	2	7103	81781
+17	CM018276.2	0	none	7	gapped_none		7	4643	68473
+18	CM018277.2	1	q	5	gapped_incomplete	Q	5	6132	56923
+19	CM018278.2	1	q	3	gapped_incomplete	Q	11	5583	55637
+20	CM018803.2	1	p	2	gapped_incomplete	P	7	5858	55960
+21	CM018279.2	0	none	10	gapped_none		5	5094	74418
+22	CM018280.2	0	none	6	gapped_none		19	2968	39300
+23	CM018804.2	0	none	3	gapped_none		10	1405	15058
+24	CM018281.2	0	none	7	gapped_none		16	2444	34415
+25	CM018282.2	0	none	11	gapped_none		22	3065	37611
+26	CM018283.2	0	none	18	gapped_none		11	1428	16825
+27	CM018284.2	0	none	8	gapped_none		29	2548	34035
+28	CM018285.2	0	none	7	gapped_none		23	1957	26328
+29	CM018286.2	0	none	9	gapped_none		9	2278	31861
+30	CM018805.2	0	none	5	gapped_none		12	827	8662
+31	CM018287.2	0	none	23	gapped_none		3	8958	100044
+32	CM018288.2	0	none	0	none		0	29	84
+
++++ Assembly Summary Report +++
+Total paths:	32
+Total gaps:	433
+Total telomeres:	5
+Total ITS blocks:	415
+Total canonical matches:	338364
+Total windows analyzed:	4785108
+
++++ Telomere Statistics +++
+Mean length:	11243
+Median length:	12722
+Min length:	1042
+Max length:	15748
+
++++ Chromosome Telomere Counts+++
+Two telomeres:	0
+One telomere:	5
+Zero telomeres:	27
+
++++ Chromosome Telomere/Gap Completeness+++
+T2T:	0
+Gapped T2T:	0
+Missassembled:	0
+Gapped missassembled:	0
+Incomplete:	0
+Gapped incomplete:	5
+No telomeres:	1
+Gapped no telomeres:	26
+Discordant:	0
+Gapped discordant:	0
