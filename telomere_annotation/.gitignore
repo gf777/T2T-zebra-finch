@@ -1,0 +1,22 @@
+# --- Teloscope raw outputs by extension (wherever they appear) ---
+*_window_metrics.bedgraph
+*_canonical_matches.bed
+*_noncanonical_matches.bed
+*.path.report
+*.ls
+
+# --- Heavy raw data ---
+*.fa
+*.fa.gz
+*.fasta
+*.fasta.gz
+*.fna
+*.fna.gz
+
+# --- Common noise ---
+*.log
+*.out
+*.err
+*.tmp
+*.swp
+.DS_Store
