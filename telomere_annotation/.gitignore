@@ -12,6 +12,14 @@
 *.fasta.gz
 *.fna
 *.fna.gz
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.sam
+*.bam
+*.cram
+*.tbl.gz
 
 # --- Common noise ---
 *.log
