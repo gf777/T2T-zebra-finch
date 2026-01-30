@@ -1,0 +1,76 @@
+
++++ Path Summary Report +++
+pos	header	telomeres	labels	gaps	type	granular	its	canonical	windows
+1	CM109788.1	2	pq	0	t2t	PQ	39	41603	579548
+2	CM109789.1	2	pq	0	t2t	PQ	40	27550	360447
+3	CM109790.1	2	pq	0	t2t	PQ	79	54341	762593
+4	CM109791.1	2	pq	0	t2t	PQ	54	41196	578061
+5	CM109792.1	2	pq	0	t2t	PQ	46	28895	368881
+6	CM109793.1	2	pq	0	t2t	PQ	11	10169	97726
+7	CM109794.1	2	pq	0	t2t	PQ	15	23891	325165
+8	CM109795.1	2	pq	0	t2t	PQ	11	15197	184843
+9	CM109796.1	2	pq	0	t2t	PQ	39	16529	197113
+10	CM109797.1	2	pq	0	t2t	PQ	35	13963	163266
+11	CM109798.1	2	pq	0	t2t	PQ	12	12722	130660
+12	CM109799.1	2	pq	0	t2t	PQ	23	10963	104602
+13	CM109800.1	2	pq	0	t2t	PQ	8	9518	108384
+14	CM109801.1	2	pq	0	t2t	PQ	12	10203	104121
+15	CM109802.1	2	pq	0	t2t	PQ	7	10495	92201
+16	CM109803.1	2	pq	0	t2t	PQ	3	7893	82057
+17	CM109804.1	2	pq	0	t2t	PQ	9	7892	69156
+18	CM109805.1	2	pq	0	t2t	PQ	90	9289	28704
+19	CM109806.1	2	pq	0	t2t	PQ	4	7133	56890
+20	CM109807.1	2	pq	0	t2t	PQ	10	7421	56166
+21	CM109808.1	2	pq	0	t2t	PQ	9	9616	55847
+22	CM109809.1	2	pq	0	t2t	PQ	10	10352	77298
+23	CM109810.1	2	pq	0	t2t	PQ	34	5714	40009
+24	CM109811.1	2	pq	0	t2t	PQ	49	6260	25263
+25	CM109812.1	2	pq	0	t2t	PQ	16	6879	34938
+26	CM109813.1	2	pq	0	t2t	PQ	29	6300	39046
+27	CM109814.1	2	pq	0	t2t	PQ	63	6554	40997
+28	CM109815.1	2	pq	0	t2t	PQ	29	6238	34513
+29	CM109816.1	2	pq	0	t2t	PQ	28	5579	29216
+30	CM109817.1	2	pq	0	t2t	PQ	16	6307	31835
+31	CM109820.1	2	pq	0	t2t	PQ	70	5853	28446
+32	CM109821.1	2	pq	0	t2t	PQ	103	9249	50377
+33	CM109822.1	2	pq	0	t2t	PQ	147	6653	28104
+34	CM109823.1	2	pq	1	gapped_t2t	Pp*Q	133	7942	27917
+35	CM109824.1	2	pq	0	t2t	PQ	102	9190	21231
+36	CM109825.1	2	pq	0	t2t	PQ	128	8931	22284
+37	CM109826.1	2	pq	0	t2t	PQ	131	11027	24424
+38	CM109827.1	2	pq	0	t2t	PQ	83	9852	24094
+39	CM109828.1	2	pq	1	gapped_t2t	PQ	148	7129	38818
+40	CM109818.1	2	pq	7	gapped_t2t	PQ	68	29979	410015
+41	CM109819.1	2	pq	0	t2t	PQ	63	21341	168887
+42	CM109829.1	0	none	0	none		0	30	84
+
++++ Assembly Summary Report +++
+Total paths:	42
+Total gaps:	9
+Total telomeres:	82
+Total ITS blocks:	2006
+Total canonical matches:	563838
+Total windows analyzed:	5704227
+
++++ Telomere Statistics +++
+Mean length:	12002.2
+Median length:	10420.5
+Min length:	3197
+Max length:	30298
+
++++ Chromosome Telomere Counts+++
+Two telomeres:	41
+One telomere:	0
+Zero telomeres:	1
+
++++ Chromosome Telomere/Gap Completeness+++
+T2T:	38
+Gapped T2T:	3
+Missassembled:	0
+Gapped missassembled:	0
+Incomplete:	0
+Gapped incomplete:	0
+No telomeres:	1
+Gapped no telomeres:	0
+Discordant:	0
+Gapped discordant:	0

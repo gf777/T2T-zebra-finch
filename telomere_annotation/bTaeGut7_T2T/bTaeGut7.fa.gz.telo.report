@@ -1,0 +1,114 @@
+
++++ Path Summary Report +++
+pos	header	telomeres	labels	gaps	type	granular	its	canonical	windows
+1	chr1_pat	2	pq	0	t2t	PQ	37	41250	579981
+2	chr1A_pat	2	pq	0	t2t	PQ	47	27022	361869
+3	chr2_pat	2	pq	0	t2t	PQ	81	53946	762814
+4	chr3_pat	2	pq	0	t2t	PQ	46	40635	575673
+5	chr4_pat	2	pq	0	t2t	PQ	52	27719	366627
+6	chr4A_pat	2	pq	0	t2t	PQ	13	9767	97625
+7	chr5_pat	2	pq	0	t2t	PQ	17	24496	319484
+8	chr6_pat	2	pq	0	t2t	PQ	11	15446	185180
+9	chr7_pat	2	pq	0	t2t	PQ	34	16152	196933
+10	chr8_pat	2	pq	0	t2t	PQ	37	13914	163474
+11	chr9_pat	2	pq	0	t2t	PQ	9	11223	131208
+12	chr10_pat	2	pq	0	t2t	PQ	31	10847	103806
+13	chr11_pat	2	pq	0	t2t	PQ	7	9397	108471
+14	chr12_pat	2	pq	0	t2t	PQ	11	10398	103851
+15	chr13_pat	2	pq	0	t2t	PQ	11	9461	94193
+16	chr14_pat	2	pq	0	t2t	PQ	6	8505	81847
+17	chr15_pat	2	pq	0	t2t	PQ	9	9515	69299
+18	chr16_pat	2	pq	0	t2t	PQ	109	8754	24009
+19	chr17_pat	2	pq	0	t2t	PQ	5	7747	57079
+20	chr18_pat	2	pq	0	t2t	PQ	13	7418	56336
+21	chr19_pat	2	pq	0	t2t	PQ	10	8811	55915
+22	chr20_pat	2	pq	0	t2t	PQ	8	7211	76692
+23	chr21_pat	2	pq	0	t2t	PQ	32	6612	39781
+24	chr22_pat	2	pq	0	t2t	PQ	55	5788	26601
+25	chr23_pat	2	pq	0	t2t	PQ	16	5786	34918
+26	chr24_pat	2	pq	0	t2t	PQ	34	6968	39022
+27	chr25_pat	2	pq	0	t2t	PQ	46	5703	34458
+28	chr26_pat	2	pq	0	t2t	PQ	34	5777	35051
+29	chr27_pat	2	pq	0	t2t	PQ	30	5975	29570
+30	chr28_pat	2	pq	0	t2t	PQ	15	6488	31846
+31	chr29_pat	2	pq	0	t2t	PQ	66	5930	30725
+32	chr30_pat	2	pq	0	t2t	PQ	89	7024	47089
+33	chr31_pat	2	pq	0	t2t	PQ	149	6248	26715
+34	chr32_pat	2	pq	0	t2t	PQ	142	7276	27865
+35	chr33_pat	2	pq	0	t2t	PQ	98	7801	23941
+36	chr34_pat	2	pq	0	t2t	PQ	135	8109	28855
+37	chr35_pat	2	pq	0	t2t	PQ	107	12788	24543
+38	chr36_pat	2	pq	0	t2t	PQ	77	7169	25086
+39	chr37_pat	2	pq	1	gapped_t2t	PQ	157	8709	29389
+40	chr1_mat	2	pq	0	t2t	PQ	39	41603	579548
+41	chr1A_mat	2	pq	0	t2t	PQ	40	27550	360447
+42	chr2_mat	2	pq	0	t2t	PQ	79	54341	762593
+43	chr3_mat	2	pq	0	t2t	PQ	54	41196	578061
+44	chr4_mat	2	pq	0	t2t	PQ	46	28895	368881
+45	chr4A_mat	2	pq	0	t2t	PQ	11	10169	97726
+46	chr5_mat	2	pq	0	t2t	PQ	15	23891	325165
+47	chr6_mat	2	pq	0	t2t	PQ	11	15197	184843
+48	chr7_mat	2	pq	0	t2t	PQ	39	16529	197113
+49	chr8_mat	2	pq	0	t2t	PQ	35	13963	163266
+50	chr9_mat	2	pq	0	t2t	PQ	12	12722	130660
+51	chr10_mat	2	pq	0	t2t	PQ	23	10963	104602
+52	chr11_mat	2	pq	0	t2t	PQ	8	9518	108384
+53	chr12_mat	2	pq	0	t2t	PQ	12	10203	104121
+54	chr13_mat	2	pq	0	t2t	PQ	7	10495	92201
+55	chr14_mat	2	pq	0	t2t	PQ	3	7893	82057
+56	chr15_mat	2	pq	0	t2t	PQ	9	7892	69156
+57	chr16_mat	2	pq	0	t2t	PQ	90	9289	28704
+58	chr17_mat	2	pq	0	t2t	PQ	4	7133	56890
+59	chr18_mat	2	pq	0	t2t	PQ	10	7421	56166
+60	chr19_mat	2	pq	0	t2t	PQ	9	9616	55847
+61	chr20_mat	2	pq	0	t2t	PQ	10	10352	77298
+62	chr21_mat	2	pq	0	t2t	PQ	34	5714	40009
+63	chr22_mat	2	pq	0	t2t	PQ	49	6260	25263
+64	chr23_mat	2	pq	0	t2t	PQ	16	6879	34938
+65	chr24_mat	2	pq	0	t2t	PQ	29	6300	39046
+66	chr25_mat	2	pq	0	t2t	PQ	63	6554	40997
+67	chr26_mat	2	pq	0	t2t	PQ	29	6238	34513
+68	chr27_mat	2	pq	0	t2t	PQ	28	5579	29216
+69	chr28_mat	2	pq	0	t2t	PQ	16	6307	31835
+70	chr29_mat	2	pq	0	t2t	PQ	70	5853	28446
+71	chr30_mat	2	pq	0	t2t	PQ	103	9249	50377
+72	chr31_mat	2	pq	0	t2t	PQ	147	6653	28104
+73	chr32_mat	2	pq	0	t2t	PQ	135	7946	27918
+74	chr33_mat	2	pq	0	t2t	PQ	102	9190	21231
+75	chr34_mat	2	pq	0	t2t	PQ	128	8931	22284
+76	chr35_mat	2	pq	0	t2t	PQ	131	11027	24424
+77	chr36_mat	2	pq	0	t2t	PQ	83	9852	24094
+78	chr37_mat	2	pq	1	gapped_t2t	PQ	148	7129	38818
+79	chrW_mat	2	pq	0	t2t	PQ	63	21341	168887
+80	chrZ_pat	2	pq	4	gapped_t2t	PQ	66	30064	410015
+
++++ Assembly Summary Report +++
+Total paths:	80
+Total gaps:	6
+Total telomeres:	160
+Total ITS blocks:	3892
+Total canonical matches:	1063682
+Total windows analyzed:	10811965
+
++++ Telomere Statistics +++
+Mean length:	11290.2
+Median length:	9770
+Min length:	951
+Max length:	30298
+
++++ Chromosome Telomere Counts+++
+Two telomeres:	80
+One telomere:	0
+Zero telomeres:	0
+
++++ Chromosome Telomere/Gap Completeness+++
+T2T:	77
+Gapped T2T:	3
+Missassembled:	0
+Gapped missassembled:	0
+Incomplete:	0
+Gapped incomplete:	0
+No telomeres:	0
+Gapped no telomeres:	0
+Discordant:	0
+Gapped discordant:	0

@@ -1,0 +1,6 @@
+accession,total_paths,total_gaps,total_telomeres,mean_length,median_length,min_length,max_length,two_telomeres,one_telomere,zero_telomeres,t2t,gapped_t2t,missassembled,gapped_missassembled,incomplete,gapped_incomplete,no_telomeres,gapped_no_telomeres,discordant,gapped_discordant
+GCA_000151805.2,35,59924,1,936.0,936.0,936.0,936.0,0,1,34,0,0,0,0,0,1,0,34,0,0
+GCA_003957565.4,42,329,3,4504.33,4290.0,4257.0,4966.0,0,3,39,0,0,0,0,0,3,1,38,0,0
+GCA_008822115.3,32,433,5,11243.0,12722.0,1042.0,15748.0,0,5,27,0,0,0,0,0,5,1,26,0,0
+GCA_048771995.1,42,9,82,12002.2,10420.5,3197.0,30298.0,41,0,1,38,3,0,0,0,0,1,0,0,0
+GCA_051427915.1,42,480,51,9076.45,7191.0,2707.0,28582.0,18,15,9,1,17,0,0,0,15,1,8,0,0
