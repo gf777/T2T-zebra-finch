@@ -1,0 +1,7 @@
+# Big Hi-C files
+*.pairs.gz
+*.pairs.sorted.gz
+*.pairs.sorted.dedup.gz
+*.gtf
+*.gtf.gz
+
