@@ -1,6 +1,6 @@
+# Residual assembly gaps in zebra finch assembly
 
-# Patching of chrZ
-Remaining gaps (GCF_048771995.1_bTaeGut7.mat_genomic.fna.gz):
+These were the existing gaps (Ns sequences) in the zebra finch assembly ([GCF_048771995.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_048771995.1/)):
 ```
 NC_133057.1	269085	269118	33
 NC_133062.1	5270652	5370737	100085
@@ -13,9 +13,16 @@ NC_133063.1	76526006	76533594	7588
 NC_133063.1	76533648	76533673	25
 ```
 
+The gap in NC_133057.1 (chr32) as well as the short (<100 bp) gaps actually correspond to sequence that was masked by [NCBI's FCS](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/data-processing/policies-annotation/quality/contamination/fcs-contamination/) as ONT adaptors. They did not need patching. The gap on NC_133062.1 (chr37) corresponds to the rDNA tangle, which was modelled separately. Patching of the 4 gaps in NC_133063.1 (chrZ) is described in the following sections.
+
+# Patching of chrZ
+
+To patch the remaining gaps in the chrZ a multistep procedure was followed.
+
 Workflow:
-1. fix gap1 in verkko
-2. fix gap2,3,4 using lastal + gfastats
+1. gap1 was fixed directly by resolving the assembly graph by manual graph curation in verkko
+2. gap2 and gap3 were modelled using [TTT](https://github.com/marbl/TTT) and the patch sequences were manually aligned using lastal and the additional sequence was introduced using gfastats
+3. gap4 was not present in the hifi-only assembly, so its sequence was aligned and the patch was introduced as in 2
 
 ## 1. gap1 fix
 First gap resolution is done using verkko and comparing the hifi-only assembly vs the hifi+correctedONT assembly:
