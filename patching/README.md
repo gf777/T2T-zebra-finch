@@ -13,7 +13,7 @@ NC_133063.1	76526006	76533594	7588
 NC_133063.1	76533648	76533673	25
 ```
 
-The gap in NC_133057.1 (chr32) as well as the short (<100 bp) gaps actually correspond to sequence that was masked by [NCBI's FCS](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/data-processing/policies-annotation/quality/contamination/fcs-contamination/) as ONT adaptors. They did not need patching, but can simply be removed. The gap on NC_133062.1 (chr37) corresponds to the rDNA tangle, which was modelled separately. Patching of the 4 gaps in NC_133063.1 (chrZ) is described in the following sections.
+The gap in NC_133057.1 (chr32) as well as the short (<100 bp) gaps actually correspond to sequence that was masked by [NCBI's FCS](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/data-processing/policies-annotation/quality/contamination/fcs-contamination/) as ONT adaptors. They did not need patching, but can simply be removed. The gap on NC_133062.1 (chr37) corresponds to the rDNA tangle, which was modelled separately. Patching of the 4 gaps in NC_133063.1 (chrZ) is described in the following sections. Patching of chrZ tangles incidentally also took care of the small gaps flanking the tangles introduced by adaptors, leaving no gaps on chrZ.
 
 # Patching of chrZ
 
